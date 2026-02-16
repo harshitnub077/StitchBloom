@@ -1,0 +1,253 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Enums
+enum Role {
+  USER
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+enum PaymentMethod {
+  STRIPE
+  RAZORPAY
+}
+
+enum AddressType {
+  SHIPPING
+  BILLING
+}
+
+// Models
+
+model User {
+  id            String    @id @default(uuid())
+  clerkId       String    @unique // External ID from Clerk
+  email         String    @unique
+  name          String?
+  password      String?   // Optional/Removed as Clerk handles auth
+  role          Role      @default(USER)
+  emailVerified DateTime?
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  orders    Order[]
+  cart      Cart?
+  wishlist  Wishlist[]
+  addresses Address[]
+  reviews   Review[]
+
+  @@index([email])
+  @@index([clerkId])
+}
+
+model Product {
+  id             String   @id @default(uuid())
+  name           String
+  slug           String   @unique
+  description    String   @db.Text
+  price          Decimal  @db.Decimal(10, 2)
+  compareAtPrice Decimal? @db.Decimal(10, 2)
+  costPerItem    Decimal  @db.Decimal(10, 2) // For internal calculating profit
+  images         Json // Array of strings (URLs)
+
+  categoryId String?
+  category   Category? @relation(fields: [categoryId], references: [id])
+
+  stock      Int     @default(0)
+  sku        String  @unique
+  isActive   Boolean @default(true)
+  isFeatured Boolean @default(false)
+
+  tags String[]
+
+  weight     Decimal? // In kg/g depending on convention
+  dimensions Json? // { length, width, height }
+
+  seoTitle       String?
+  seoDescription String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  orderItems OrderItem[]
+  cartItems  CartItem[]
+  reviews    Review[]
+  wishlisted Wishlist[]
+
+  @@index([name])
+  @@index([slug])
+  @@index([categoryId])
+}
+
+model Category {
+  id          String  @id @default(uuid())
+  name        String  @unique
+  slug        String  @unique
+  description String?
+  image       String?
+  isActive    Boolean @default(true)
+
+  // Self-relation for subcategories
+  parentId String?
+  parent   Category?  @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  children Category[] @relation("CategoryHierarchy")
+
+  products Product[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Order {
+  id              String        @id @default(uuid())
+  orderNumber     String        @unique // Human readable e.g. "ORD-1234"
+  userId          String
+  user            User          @relation(fields: [userId], references: [id])
+  status          OrderStatus   @default(PENDING)
+  paymentStatus   PaymentStatus @default(PENDING)
+  paymentMethod   PaymentMethod
+  paymentIntentId String?       @unique // Stripe/Razorpay Intent ID
+
+  subtotal Decimal @db.Decimal(10, 2)
+  tax      Decimal @db.Decimal(10, 2)
+  shipping Decimal @db.Decimal(10, 2)
+  discount Decimal @db.Decimal(10, 2) @default(0)
+  total    Decimal @db.Decimal(10, 2)
+  currency String  @default("USD")
+
+  // Snapshots of addresses at time of order
+  shippingAddress Json
+  billingAddress  Json
+
+  trackingNumber String?
+  notes          String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  orderItems OrderItem[]
+
+  @@index([orderNumber])
+  @@index([userId])
+}
+
+model OrderItem {
+  id        String  @id @default(uuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id]) // No cascade delete, keep history
+
+  quantity Int
+  price    Decimal @db.Decimal(10, 2) // Price at purchase time
+  total    Decimal @db.Decimal(10, 2)
+
+  @@index([orderId])
+  @@index([productId])
+}
+
+model Cart {
+  id        String     @id @default(uuid())
+  userId    String?    @unique // Nullable for guest carts if supported, but typically User-Cart 1:1
+  user      User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  cartItems CartItem[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model CartItem {
+  id        String  @id @default(uuid())
+  cartId    String
+  cart      Cart    @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  quantity  Int
+
+  @@unique([cartId, productId])
+}
+
+model Wishlist {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId])
+}
+
+model Address {
+  id           String      @id @default(uuid())
+  userId       String
+  user         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type         AddressType @default(SHIPPING)
+  isDefault    Boolean     @default(false)
+  fullName     String
+  addressLine1 String
+  addressLine2 String?
+  city         String
+  state        String
+  postalCode   String
+  country      String
+  phone        String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model Review {
+  id                 String  @id @default(uuid())
+  userId             String
+  user               User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId          String
+  product            Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  rating             Int     @default(5) // 1-5
+  title              String?
+  comment            String? @db.Text
+  isVerifiedPurchase Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([productId])
+  @@index([userId])
+}
+
+model Analytics {
+  id           String   @id @default(uuid())
+  date         DateTime @unique @db.Date // Daily aggregation
+  revenue      Decimal  @default(0) @db.Decimal(12, 2)
+  orders       Int      @default(0)
+  newCustomers Int      @default(0)
+  productViews Json? // { "productId": count }
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
