@@ -1,0 +1,10 @@
+{
+    "extends": "@crochetverse/config/tsconfig.json",
+    "include": [
+        "src/**/*",
+        "prisma/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
