@@ -23,7 +23,7 @@ export default function CartPage() {
             <div className="container py-20 text-center">
                 <h1 className="text-3xl font-bold mb-4">Your Cart is Empty</h1>
                 <p className="text-muted-foreground mb-8">
-                    Looks like you haven't added anything yet.
+                    Looks like you haven&apos;t added anything yet.
                 </p>
                 <Button asChild>
                     <Link href="/products">Start Shopping</Link>

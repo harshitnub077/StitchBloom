@@ -117,7 +117,7 @@ export function SearchBar() {
                                             className="flex items-center gap-3 rounded-sm px-2 py-2 hover:bg-accent"
                                             onClick={() => setOpen(false)}
                                         >
-                                            {/* Placeholder image or real image if feasible */}
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
                                             {product.images[0] && (
                                                 <img src={product.images[0]} alt="" className="h-8 w-8 rounded object-cover" />
                                             )}
@@ -135,7 +135,7 @@ export function SearchBar() {
                                             setOpen(false);
                                         }}
                                     >
-                                        View all results for "{query}"
+                                        View all results for &quot;{query}&quot;
                                         <ArrowRight className="ml-1 h-3 w-3" />
                                     </Button>
                                 </div>

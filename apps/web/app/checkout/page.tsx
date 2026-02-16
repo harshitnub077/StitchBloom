@@ -95,7 +95,17 @@ export default function CheckoutPage() {
                         </div>
                     </div>
 
-                    <RazorpayCheckout />
+                    <RazorpayCheckout
+                        amount={total}
+                        onSuccess={(paymentId) => {
+                            alert(`Payment Successful! ID: ${paymentId}`);
+                            router.push("/orders"); // Or success page
+                        }}
+                        onError={(err) => {
+                            alert("Payment failed");
+                            console.error(err);
+                        }}
+                    />
                 </div>
 
                 <p className="text-xs text-muted-foreground text-center mt-4">

@@ -70,17 +70,22 @@ async function getProducts(searchParams: PageProps["searchParams"]) {
             break;
     }
 
-    const products = await db.product.findMany({
-        where,
-        skip,
-        take: limit,
-        orderBy,
-        include: {
-            category: true,
-        },
-    });
+    try {
+        const products = await db.product.findMany({
+            where,
+            skip,
+            take: limit,
+            orderBy,
+            include: {
+                category: true,
+            },
+        });
 
-    return products;
+        return products;
+    } catch (error) {
+        console.error("Database connection failed:", error);
+        return [];
+    }
 }
 
 export default async function ProductsPage({ searchParams }: PageProps) {
@@ -100,7 +105,12 @@ export default async function ProductsPage({ searchParams }: PageProps) {
                         </p>
                     </div>
                     <Suspense fallback={<div>Loading products...</div>}>
-                        <ProductGrid products={products} />
+                        <ProductGrid products={products.map(p => ({
+                            ...p,
+                            price: p.price.toString(),
+                            images: (p.images as unknown as string[]) || [],
+                            category: p.category || undefined
+                        }))} />
                     </Suspense>
                 </main>
             </div>

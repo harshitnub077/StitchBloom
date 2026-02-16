@@ -1,0 +1,233 @@
+
+> web@0.0.0 build /Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web
+> next build
+
+   ▲ Next.js 14.1.0
+   - Environments: .env
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/10) ...
+Error: @clerk/clerk-react: The publishableKey passed to Clerk is invalid. You can get your Publishable key at https://dashboard.clerk.com/last-active?path=api-keys. (key=pk_test_dummy)
+    at Object.throwInvalidPublishableKeyError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:100:1569)
+    at /Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:89:53868
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47419)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47570)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61233)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+
+Error occurred prerendering page "/cart". Read more: https://nextjs.org/docs/messages/prerender-error
+
+Error: @clerk/clerk-react: The publishableKey passed to Clerk is invalid. You can get your Publishable key at https://dashboard.clerk.com/last-active?path=api-keys. (key=pk_test_dummy)
+    at Object.throwInvalidPublishableKeyError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:100:1569)
+    at /Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:89:53868
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47419)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47570)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61233)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+Error: @clerk/clerk-react: The publishableKey passed to Clerk is invalid. You can get your Publishable key at https://dashboard.clerk.com/last-active?path=api-keys. (key=pk_test_dummy)
+    at Object.throwInvalidPublishableKeyError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:100:1569)
+    at /Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:89:53868
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47419)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47570)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61233)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+
+Error occurred prerendering page "/checkout". Read more: https://nextjs.org/docs/messages/prerender-error
+
+Error: @clerk/clerk-react: The publishableKey passed to Clerk is invalid. You can get your Publishable key at https://dashboard.clerk.com/last-active?path=api-keys. (key=pk_test_dummy)
+    at Object.throwInvalidPublishableKeyError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:100:1569)
+    at /Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:89:53868
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47419)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47570)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61233)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+   Generating static pages (2/10) 
+Error fetching featured products: PrismaClientInitializationError: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Can't reach database server at `localhost:5432`
+
+Please make sure your database server is running at `localhost:5432`.
+    at $n.handleRequestError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/699.js:121:7511)
+    at $n.handleAndLogRequestError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/699.js:121:6535)
+    at $n.request (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/699.js:121:6219)
+    at async s (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/699.js:130:9486)
+    at async N (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/app/page.js:11:1016)
+    at async k (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/app/page.js:11:1221) {
+  clientVersion: '5.22.0',
+  errorCode: undefined
+}
+Error fetching featured products: PrismaClientInitializationError: 
+Invalid `prisma.product.findMany()` invocation:
+
+
+Can't reach database server at `localhost:5432`
+
+Please make sure your database server is running at `localhost:5432`.
+    at $n.handleRequestError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/699.js:121:7511)
+    at $n.handleAndLogRequestError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/699.js:121:6535)
+    at $n.request (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/699.js:121:6219)
+    at async s (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/699.js:130:9486)
+    at async N (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/app/page.js:11:1016)
+    at async k (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/app/page.js:11:1221) {
+  clientVersion: '5.22.0',
+  errorCode: undefined
+}
+Error: @clerk/clerk-react: The publishableKey passed to Clerk is invalid. You can get your Publishable key at https://dashboard.clerk.com/last-active?path=api-keys. (key=pk_test_dummy)
+    at Object.throwInvalidPublishableKeyError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:100:1569)
+    at /Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:89:53868
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47419)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47570)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61233)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+
+Error occurred prerendering page "/". Read more: https://nextjs.org/docs/messages/prerender-error
+
+Error: @clerk/clerk-react: The publishableKey passed to Clerk is invalid. You can get your Publishable key at https://dashboard.clerk.com/last-active?path=api-keys. (key=pk_test_dummy)
+    at Object.throwInvalidPublishableKeyError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:100:1569)
+    at /Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:89:53868
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47419)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47570)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61233)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+Error: @clerk/clerk-react: The publishableKey passed to Clerk is invalid. You can get your Publishable key at https://dashboard.clerk.com/last-active?path=api-keys. (key=pk_test_dummy)
+    at Object.throwInvalidPublishableKeyError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:100:1569)
+    at /Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:89:53868
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47419)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47570)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61233)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+
+Error occurred prerendering page "/_not-found". Read more: https://nextjs.org/docs/messages/prerender-error
+
+Error: @clerk/clerk-react: The publishableKey passed to Clerk is invalid. You can get your Publishable key at https://dashboard.clerk.com/last-active?path=api-keys. (key=pk_test_dummy)
+    at Object.throwInvalidPublishableKeyError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:100:1569)
+    at /Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:89:53868
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47419)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47570)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61233)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+Error: @clerk/clerk-react: The publishableKey passed to Clerk is invalid. You can get your Publishable key at https://dashboard.clerk.com/last-active?path=api-keys. (key=pk_test_dummy)
+    at Object.throwInvalidPublishableKeyError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:100:1569)
+    at /Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:89:53868
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47419)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47570)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61233)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+
+Error occurred prerendering page "/dashboard/orders". Read more: https://nextjs.org/docs/messages/prerender-error
+
+Error: @clerk/clerk-react: The publishableKey passed to Clerk is invalid. You can get your Publishable key at https://dashboard.clerk.com/last-active?path=api-keys. (key=pk_test_dummy)
+    at Object.throwInvalidPublishableKeyError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:100:1569)
+    at /Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:89:53868
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47419)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47570)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61233)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+Error: @clerk/clerk-react: The publishableKey passed to Clerk is invalid. You can get your Publishable key at https://dashboard.clerk.com/last-active?path=api-keys. (key=pk_test_dummy)
+    at Object.throwInvalidPublishableKeyError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:100:1569)
+    at /Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:89:53868
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47419)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47570)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61233)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+
+Error occurred prerendering page "/checkout/success". Read more: https://nextjs.org/docs/messages/prerender-error
+
+Error: @clerk/clerk-react: The publishableKey passed to Clerk is invalid. You can get your Publishable key at https://dashboard.clerk.com/last-active?path=api-keys. (key=pk_test_dummy)
+    at Object.throwInvalidPublishableKeyError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:100:1569)
+    at /Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:89:53868
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47419)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47570)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61233)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+   Generating static pages (4/10) 
+Error: @clerk/clerk-react: The publishableKey passed to Clerk is invalid. You can get your Publishable key at https://dashboard.clerk.com/last-active?path=api-keys. (key=pk_test_dummy)
+    at Object.throwInvalidPublishableKeyError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:100:1569)
+    at /Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:89:53868
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47419)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47570)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61233)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+
+Error occurred prerendering page "/products". Read more: https://nextjs.org/docs/messages/prerender-error
+
+Error: @clerk/clerk-react: The publishableKey passed to Clerk is invalid. You can get your Publishable key at https://dashboard.clerk.com/last-active?path=api-keys. (key=pk_test_dummy)
+    at Object.throwInvalidPublishableKeyError (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:100:1569)
+    at /Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/apps/web/.next/server/chunks/523.js:89:53868
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47419)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:47570)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nM (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:61233)
+    at nN (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:64674)
+    at nI (/Users/harshitru/Desktop/Projects/StitchBloom /crochetverse/node_modules/.pnpm/next@14.1.0_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:12:46806)
+   Generating static pages (7/10) 
+ ✓ Generating static pages (10/10) 
+
+> Export encountered errors on following paths:
+	/(admin)/dashboard/orders/page: /dashboard/orders
+	/_not-found
+	/cart/page: /cart
+	/checkout/page: /checkout
+	/checkout/success/page: /checkout/success
+	/page: /
+	/products/page: /products
+ ELIFECYCLE  Command failed with exit code 1.

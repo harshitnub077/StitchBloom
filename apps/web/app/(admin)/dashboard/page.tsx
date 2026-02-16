@@ -3,12 +3,14 @@ import { analyticsService } from "@/lib/analytics-service";
 import { StatCard } from "@/components/admin/StatCard";
 import { RevenueChart } from "@/components/admin/RevenueChart";
 import { RecentOrders } from "@/components/admin/RecentOrders";
-import { DollarSign, CreditCard, Users, Activity } from "lucide-react";
+import { DollarSign, Package, ShoppingBag, Users, CreditCard, Activity } from "lucide-react";
 
 export const metadata: Metadata = {
     title: "Dashboard",
     description: "Example dashboard app built using the components.",
 };
+
+export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
     const stats = await analyticsService.getDashboardStats();
@@ -24,19 +26,19 @@ export default async function DashboardPage() {
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                     <StatCard
                         title="Total Revenue"
-                        value={`$${stats.totalRevenue}`}
+                        value={`$${stats.totalRevenue} `}
                         icon={DollarSign}
                         description="+20.1% from last month"
                     />
                     <StatCard
                         title="Sales"
-                        value={`+${stats.totalOrders}`}
+                        value={`+ ${stats.totalOrders} `}
                         icon={CreditCard}
                         description="+180.1% from last month"
                     />
                     <StatCard
                         title="Active Now"
-                        value={`+${stats.totalCustomers}`}
+                        value={`+ ${stats.totalCustomers} `}
                         icon={Activity}
                         description="+201 since last hour"
                     />
