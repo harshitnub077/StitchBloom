@@ -33,7 +33,7 @@ export function Header() {
             className={cn(
                 "sticky top-0 z-50 w-full transition-all duration-300",
                 isScrolled
-                    ? "bg-background/80 backdrop-blur-md border-b shadow-sm"
+                    ? "bg-background/60 backdrop-blur-xl border-b border-border shadow-lg"
                     : "bg-transparent border-b border-transparent"
             )}
         >
@@ -41,17 +41,17 @@ export function Header() {
                 <div className="flex h-16 items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2">
-                        <span className="text-2xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+                        <span className="text-2xl font-bold font-heading tracking-tight bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 block">
                             CrochetVerse
                         </span>
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center gap-6">
-                        <Link href="/products" className="text-sm font-medium hover:text-primary transition-colors">
+                    <nav className="hidden md:flex items-center gap-8">
+                        <Link href="/products" className="relative py-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">
                             Shop
                         </Link>
-                        <Link href="/about" className="text-sm font-medium hover:text-primary transition-colors">
+                        <Link href="/about" className="relative py-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">
                             About
                         </Link>
                         <SearchBar />

@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/layout/Header";
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+import { CustomCursor } from "@/components/ui/custom-cursor";
+
+const sans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans" });
+const heading = Outfit({ subsets: ["latin"], variable: "--font-heading" });
 
 export const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://crochetverse.com'),
@@ -47,14 +51,19 @@ export default function RootLayout({
             <html lang="en">
                 <body
                     className={cn(
-                        "min-h-screen bg-background font-sans antialiased",
-                        inter.variable
+                        "min-h-screen bg-background font-sans antialiased text-foreground",
+                        sans.variable,
+                        heading.variable,
+                        "dark scroll-smooth"
                     )}
                 >
-                    <div className="relative flex min-h-screen flex-col">
-                        <Header />
-                        <div className="flex-1">{children}</div>
-                    </div>
+                    <CustomCursor />
+                    <SmoothScroll>
+                        <div className="relative flex min-h-screen flex-col">
+                            <Header />
+                            <div className="flex-1">{children}</div>
+                        </div>
+                    </SmoothScroll>
                 </body>
             </html>
         </ClerkProvider>

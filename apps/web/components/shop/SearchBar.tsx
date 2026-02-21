@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useSearch } from "@/hooks/use-search";
 import Link from "next/link";
+import Image from "next/image";
 import { formatPrice } from "@crochetverse/shared";
 import { useOnClickOutside } from "@/hooks/use-on-click-outside"; // Assume exists or I will create simplified in-file
 
@@ -117,9 +118,8 @@ export function SearchBar() {
                                             className="flex items-center gap-3 rounded-sm px-2 py-2 hover:bg-accent"
                                             onClick={() => setOpen(false)}
                                         >
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
                                             {product.images[0] && (
-                                                <img src={product.images[0]} alt="" className="h-8 w-8 rounded object-cover" />
+                                                <Image src={product.images[0]} alt="" width={32} height={32} className="h-8 w-8 rounded object-cover" />
                                             )}
                                             <div className="flex-1 overflow-hidden">
                                                 <p className="truncate text-sm font-medium">{product.name}</p>
