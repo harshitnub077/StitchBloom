@@ -3,40 +3,20 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 // Enums
-enum Role {
-  USER
-  ADMIN
-}
 
-enum OrderStatus {
-  PENDING
-  PROCESSING
-  SHIPPED
-  DELIVERED
-  CANCELLED
-}
 
-enum PaymentStatus {
-  PENDING
-  PAID
-  FAILED
-  REFUNDED
-}
 
-enum PaymentMethod {
-  STRIPE
-  RAZORPAY
-}
 
-enum AddressType {
-  SHIPPING
-  BILLING
-}
+
+
+
+
+
 
 // Models
 
@@ -46,7 +26,7 @@ model User {
   email         String    @unique
   name          String?
   password      String?   // Optional/Removed as Clerk handles auth
-  role          Role      @default(USER)
+  role String @default("USER")
   emailVerified DateTime?
   image         String?
   createdAt     DateTime  @default(now())
@@ -67,11 +47,11 @@ model Product {
   id             String   @id @default(uuid())
   name           String
   slug           String   @unique
-  description    String   @db.Text
-  price          Decimal  @db.Decimal(10, 2)
-  compareAtPrice Decimal? @db.Decimal(10, 2)
-  costPerItem    Decimal  @db.Decimal(10, 2) // For internal calculating profit
-  images         Json // Array of strings (URLs)
+  description    String   
+  price          Float  
+  compareAtPrice Float? 
+  costPerItem    Float   // For internal calculating profit
+  images         String // Array of strings (URLs)
 
   categoryId String?
   category   Category? @relation(fields: [categoryId], references: [id])
@@ -81,10 +61,10 @@ model Product {
   isActive   Boolean @default(true)
   isFeatured Boolean @default(false)
 
-  tags String[]
+  tags String
 
-  weight     Decimal? // In kg/g depending on convention
-  dimensions Json? // { length, width, height }
+  weight     Float? // In kg/g depending on convention
+  dimensions String? // { length, width, height }
 
   seoTitle       String?
   seoDescription String?
@@ -127,21 +107,21 @@ model Order {
   orderNumber     String        @unique // Human readable e.g. "ORD-1234"
   userId          String
   user            User          @relation(fields: [userId], references: [id])
-  status          OrderStatus   @default(PENDING)
-  paymentStatus   PaymentStatus @default(PENDING)
-  paymentMethod   PaymentMethod
+  status String @default("PENDING")
+  paymentStatus String @default("PENDING")
+  paymentMethod String
   paymentIntentId String?       @unique // Stripe/Razorpay Intent ID
 
-  subtotal Decimal @db.Decimal(10, 2)
-  tax      Decimal @db.Decimal(10, 2)
-  shipping Decimal @db.Decimal(10, 2)
-  discount Decimal @db.Decimal(10, 2) @default(0)
-  total    Decimal @db.Decimal(10, 2)
+  subtotal Float 
+  tax      Float 
+  shipping Float 
+  discount Float  @default(0)
+  total    Float 
   currency String  @default("USD")
 
   // Snapshots of addresses at time of order
-  shippingAddress Json
-  billingAddress  Json
+  shippingAddress String
+  billingAddress  String
 
   trackingNumber String?
   notes          String?
@@ -163,8 +143,8 @@ model OrderItem {
   product   Product @relation(fields: [productId], references: [id]) // No cascade delete, keep history
 
   quantity Int
-  price    Decimal @db.Decimal(10, 2) // Price at purchase time
-  total    Decimal @db.Decimal(10, 2)
+  price    Float  // Price at purchase time
+  total    Float 
 
   @@index([orderId])
   @@index([productId])
@@ -205,7 +185,7 @@ model Address {
   id           String      @id @default(uuid())
   userId       String
   user         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
-  type         AddressType @default(SHIPPING)
+  type String @default("SHIPPING")
   isDefault    Boolean     @default(false)
   fullName     String
   addressLine1 String
@@ -230,7 +210,7 @@ model Review {
   product            Product @relation(fields: [productId], references: [id], onDelete: Cascade)
   rating             Int     @default(5) // 1-5
   title              String?
-  comment            String? @db.Text
+  comment            String? 
   isVerifiedPurchase Boolean @default(false)
 
   createdAt DateTime @default(now())
@@ -242,11 +222,11 @@ model Review {
 
 model Analytics {
   id           String   @id @default(uuid())
-  date         DateTime @unique @db.Date // Daily aggregation
-  revenue      Decimal  @default(0) @db.Decimal(12, 2)
+  date         DateTime @unique  // Daily aggregation
+  revenue      Float  @default(0) 
   orders       Int      @default(0)
   newCustomers Int      @default(0)
-  productViews Json? // { "productId": count }
+  productViews String? // { "productId": count }
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
