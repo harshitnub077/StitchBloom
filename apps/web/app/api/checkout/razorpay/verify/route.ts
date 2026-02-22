@@ -41,18 +41,18 @@ export async function POST(req: NextRequest) {
                     tax: 0,
                     shipping: 0,
                     paymentIntentId: razorpay_payment_id,
-                    shippingAddress: {
+                    shippingAddress: JSON.stringify({
                         line1: "123 Main St",
                         city: "Test City",
                         country: "Test Country",
                         postalCode: "123456"
-                    },
-                    billingAddress: {
+                    }),
+                    billingAddress: JSON.stringify({
                         line1: "123 Main St",
                         city: "Test City",
                         country: "Test Country",
                         postalCode: "123456"
-                    },
+                    }),
                     orderItems: {
                         create: cart.cartItems.map(item => ({
                             productId: item.productId,

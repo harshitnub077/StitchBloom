@@ -13,10 +13,10 @@ export async function GET(req: NextRequest) {
         const products = await db.product.findMany({
             where: {
                 OR: [
-                    { name: { contains: query, mode: "insensitive" } },
-                    { description: { contains: query, mode: "insensitive" } },
+                    { name: { contains: query } },
+                    { description: { contains: query } },
                     // Assuming tags is a scalar list (String[]) in Prisma Schema
-                    // { tags: { has: query } } 
+                    // { tags: { contains: query } } 
                     // If tags is not yet array in prisma schema we stick to name/desc
                 ],
                 // status: "PUBLISHED" // If we have status field

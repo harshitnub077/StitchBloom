@@ -34,11 +34,10 @@ async function getProducts(searchParams: PageProps["searchParams"]) {
             searchParams.search
                 ? {
                     OR: [
-                        { name: { contains: searchParams.search, mode: "insensitive" } },
+                        { name: { contains: searchParams.search } },
                         {
                             description: {
                                 contains: searchParams.search,
-                                mode: "insensitive",
                             },
                         },
                     ],

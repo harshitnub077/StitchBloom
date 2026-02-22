@@ -42,7 +42,7 @@ export async function generateMetadata({
         title: `${product.name} | CrochetVerse`,
         description: product.description.substring(0, 160),
         openGraph: {
-            images: product.images as string[],
+            images: [product.images as string],
         }
     };
 }
@@ -57,12 +57,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
     return (
         <div className="container mx-auto px-4 py-8">
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
-                <ProductGallery images={product.images as string[]} name={product.name} />
+                <ProductGallery images={[product.images as string]} name={product.name} />
                 <ProductInfo product={product} />
-            </div>
-
-            <div className="border-t pt-16">
-                <ProductReviews productId={product.id} reviews={product.reviews} />
             </div>
         </div>
     );

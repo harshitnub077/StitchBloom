@@ -29,71 +29,73 @@ export function Header() {
     const totalItems = cart.items.reduce((acc, item) => acc + item.quantity, 0);
 
     return (
-        <header
-            className={cn(
-                "sticky top-0 z-50 w-full transition-all duration-300",
-                isScrolled
-                    ? "bg-background/60 backdrop-blur-xl border-b border-border shadow-lg"
-                    : "bg-transparent border-b border-transparent"
-            )}
-        >
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex h-16 items-center justify-between">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2">
-                        <span className="text-2xl font-bold font-heading tracking-tight bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 block">
-                            CrochetVerse
-                        </span>
-                    </Link>
+        <header className="w-full bg-white shadow-sm font-sans flex flex-col">
+            {/* 1. Promo Bar */}
+            <div className="w-full bg-primary text-primary-foreground text-xs font-medium py-2 text-center tracking-widest uppercase">
+                FESTIVE SALE: FREE SHIPPING ACROSS INDIA | USE CODE : BHARAT10
+            </div>
 
-                    {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center gap-8">
-                        <Link href="/products" className="relative py-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">
-                            Shop
-                        </Link>
-                        <Link href="/about" className="relative py-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100">
-                            About
-                        </Link>
+            {/* 2. Main Header Row (Logo Centered, Search Left, Icons Right) */}
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+                {/* Left: Mobile Menu & Search */}
+                <div className="flex items-center gap-4 flex-1">
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="md:hidden"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                    </Button>
+                    <div className="hidden md:block w-64">
                         <SearchBar />
-                    </nav>
-
-                    {/* Actions */}
-                    <div className="flex items-center gap-4">
-                        <Link href="/cart">
-                            <Button variant="ghost" size="icon" className="relative hover:bg-primary/10">
-                                <ShoppingBag className="h-5 w-5" />
-                                {totalItems > 0 && (
-                                    <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground animate-in zoom-in">
-                                        {totalItems}
-                                    </span>
-                                )}
-                            </Button>
-                        </Link>
-
-                        {isLoaded && user ? (
-                            <UserButton afterSignOutUrl="/" />
-                        ) : (
-                            <SignInButton mode="modal">
-                                <Button size="sm" className="hidden md:flex">Sign In</Button>
-                            </SignInButton>
-                        )}
-
-                        {/* Mobile Menu Toggle */}
-                        <Button
-                            variant="ghost"
-                            size="icon"
-                            className="md:hidden"
-                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        >
-                            {isMobileMenuOpen ? (
-                                <X className="h-5 w-5" />
-                            ) : (
-                                <Menu className="h-5 w-5" />
-                            )}
-                        </Button>
                     </div>
                 </div>
+
+                {/* Center: Logo */}
+                <Link href="/" className="flex flex-col items-center justify-center flex-1">
+                    <span className="text-3xl font-bold font-heading tracking-wider text-foreground">
+                        Stitch<span className="text-primary font-normal">Bloom</span>
+                    </span>
+                </Link>
+
+                {/* Right: Actions */}
+                <div className="flex items-center justify-end gap-2 flex-1">
+                    {isLoaded && user ? (
+                        <UserButton afterSignOutUrl="/" />
+                    ) : (
+                        <SignInButton mode="modal">
+                            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+                            </Button>
+                        </SignInButton>
+                    )}
+
+                    <Link href="/cart">
+                        <Button variant="ghost" size="icon" className="relative text-muted-foreground hover:text-foreground">
+                            <ShoppingBag className="h-5 w-5" />
+                            {totalItems > 0 && (
+                                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">
+                                    {totalItems}
+                                </span>
+                            )}
+                        </Button>
+                    </Link>
+                </div>
             </div>
+
+            {/* 3. Navigation Links Row */}
+            <nav className="hidden md:flex items-center justify-center gap-8 py-3 border-t border-gray-100">
+                <Link href="/" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+                    Home
+                </Link>
+                <Link href="/products" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                    Shop All
+                </Link>
+                <Link href="/about" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                    About
+                </Link>
+            </nav>
 
             {/* Mobile Menu */}
             <AnimatePresence>
@@ -102,35 +104,35 @@ export function Header() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden border-b bg-background"
+                        className="md:hidden border-b bg-white border-gray-100"
                     >
                         <div className="container mx-auto px-4 py-4 space-y-4">
+                            <div className="w-full">
+                                <SearchBar />
+                            </div>
                             <div className="flex flex-col space-y-2">
                                 <Link
-                                    href="/products"
-                                    className="px-4 py-2 text-sm font-medium hover:bg-accent rounded-md"
+                                    href="/"
+                                    className="px-4 py-2 text-sm font-medium text-foreground hover:bg-gray-50 rounded-md"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
-                                    Shop
+                                    Home
+                                </Link>
+                                <Link
+                                    href="/products"
+                                    className="px-4 py-2 text-sm font-medium text-foreground hover:bg-gray-50 rounded-md"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    Shop All
                                 </Link>
                                 <Link
                                     href="/about"
-                                    className="px-4 py-2 text-sm font-medium hover:bg-accent rounded-md"
+                                    className="px-4 py-2 text-sm font-medium text-foreground hover:bg-gray-50 rounded-md"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     About
                                 </Link>
                             </div>
-                            <div className="px-4">
-                                <SearchBar />
-                            </div>
-                            {!user && (
-                                <div className="px-4 pt-2">
-                                    <SignInButton mode="modal">
-                                        <Button className="w-full">Sign In</Button>
-                                    </SignInButton>
-                                </div>
-                            )}
                         </div>
                     </motion.div>
                 )}
