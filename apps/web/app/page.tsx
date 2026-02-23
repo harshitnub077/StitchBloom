@@ -2,9 +2,10 @@ import Link from "next/link";
 import { db } from "@/lib/auth";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Package, ShoppingBag, Star } from "lucide-react";
+import { ArrowRight, MoveRight } from "lucide-react";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
+import { Marquee } from "@/components/ui/marquee";
 
 async function getFeaturedProducts() {
     try {
@@ -27,112 +28,147 @@ export default async function Home() {
     const featuredProducts = await getFeaturedProducts();
 
     return (
-        <main className="min-h-screen bg-white">
+        <main className="min-h-screen bg-black text-white selection:bg-white selection:text-black mt-16 overflow-hidden">
             {/* Hero Section */}
-            <section className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden bg-gray-100 flex items-center justify-center">
-                {/* Placeholder Hero Image */}
-                <div className="absolute inset-0">
+            <section className="relative w-full h-[90vh] flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 w-full h-full">
+                    {/* Dark gradient overlay for text readability */}
+                    <div className="absolute inset-0 bg-black/40 z-10" />
                     <img
-                        src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2000&auto=format&fit=crop"
+                        src="https://images.unsplash.com/photo-1605813813133-7d72111fe1e2?q=80&w=2000&auto=format&fit=crop"
                         alt="StitchBloom Hero Collection"
-                        className="w-full h-full object-cover opacity-90"
+                        className="w-full h-full object-cover scale-105 filter grayscale"
+                        style={{ objectPosition: "center 30%" }}
                     />
                 </div>
 
-                {/* Hero Overlay Content */}
-                <div className="relative z-10 text-center flex flex-col items-center justify-center px-4">
-                    <FadeIn delay={0.1}>
-                        <h1 className="text-4xl md:text-6xl font-heading font-bold text-white drop-shadow-lg tracking-wide mb-4">
-                            Authentic Indian Handicrafts
-                        </h1>
-                        <p className="text-lg md:text-xl text-white/90 drop-shadow-md tracking-wider mb-8 font-medium">
-                            Proudly Woven & Handcrafted in India
-                        </p>
+                <div className="relative z-20 text-center flex flex-col items-center justify-center px-4 w-full max-w-5xl mx-auto mt-20">
+                    <FadeIn delay={0.2} direction="up">
+                        <span className="uppercase tracking-[0.5em] text-sm md:text-base text-white/80 mb-6 block font-medium">
+                            The Heritage Collection
+                        </span>
                     </FadeIn>
-                    <FadeIn delay={0.2}>
-                        <Link href="/products">
-                            <Button size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-sm tracking-widest uppercase transition-all shadow-md">
-                                Shop Collection
-                            </Button>
+                    <FadeIn delay={0.4} direction="up">
+                        <h1 className="text-5xl md:text-8xl font-heading font-normal text-white tracking-wider mb-8 leading-tight">
+                            INDIAN <br className="md:hidden" /> ARTISTRY
+                        </h1>
+                    </FadeIn>
+                    <FadeIn delay={0.6} direction="up">
+                        <Link href="/products" className="group flex items-center gap-4 bg-white text-black px-8 py-4 rounded-full hover:bg-white/90 transition-all duration-300">
+                            <span className="text-sm font-bold tracking-widest uppercase">Explore Pieces</span>
+                            <div className="bg-black text-white rounded-full p-2 group-hover:translate-x-1 transition-transform">
+                                <MoveRight className="w-4 h-4" />
+                            </div>
                         </Link>
                     </FadeIn>
                 </div>
             </section>
 
+            {/* Marquee Section */}
+            <Marquee text="PURE CRAFTSMANSHIP • ELEGANT DESIGN • HANDCRAFTED IN INDIA • SUSTAINABLE ART • " speed={25} />
+
+            {/* About The Craft Section */}
+            <section className="py-24 md:py-32 bg-black text-white border-b border-white/10">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+                        <FadeIn direction="right" className="relative aspect-[4/5] w-full max-w-md mx-auto overflow-hidden group">
+                            <img
+                                src="https://images.unsplash.com/photo-1610488056250-7f28dc0737ee?q=80&w=1000&auto=format&fit=crop"
+                                alt="Craftsmanship"
+                                className="w-full h-full object-cover filter grayscale transition-transform duration-1000 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 border border-white/20 m-4 z-10 pointer-events-none" />
+                        </FadeIn>
+
+                        <div className="flex flex-col justify-center">
+                            <FadeIn direction="left" delay={0.2}>
+                                <h2 className="text-4xl md:text-5xl font-heading tracking-widest uppercase mb-8 leading-tight">
+                                    Preserving <br /> Ancient Roots
+                                </h2>
+                                <p className="text-lg md:text-xl text-white/70 leading-relaxed font-light mb-8">
+                                    Every piece in our collection is a testament to the centuries-old techniques passed down through generations of Indian artisans. We believe in the power of the human hand to create objects of profound beauty and lasting quality.
+                                </p>
+                                <p className="text-base text-white/50 leading-relaxed font-light mb-10">
+                                    From intricate weaves to deeply textured pottery, StitchBloom brings the raw, unfiltered essence of Indian heritage into modern, minimalist spaces.
+                                </p>
+                            </FadeIn>
+                            <FadeIn direction="left" delay={0.4}>
+                                <Link href="/about" className="inline-flex items-center gap-3 border-b border-white pb-1 group hover:text-white/70 transition-colors">
+                                    <span className="uppercase tracking-widest text-sm font-medium">Our Story</span>
+                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                                </Link>
+                            </FadeIn>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Shop By Category Section */}
-            <section className="py-16 md:py-24 bg-primary text-white">
+            <section className="py-24 bg-white text-black">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <FadeIn direction="up">
-                        <h2 className="text-2xl md:text-3xl font-heading tracking-widest uppercase mb-12 text-center md:text-left">
-                            Shop By Category
-                        </h2>
+                        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                            <h2 className="text-4xl md:text-6xl font-heading tracking-widest uppercase">
+                                Curated <br /> Collections
+                            </h2>
+                            <Link href="/products" className="inline-flex items-center gap-3 border-b border-black pb-1 group hover:text-black/70 transition-colors">
+                                <span className="uppercase tracking-widest text-sm font-medium">View All</span>
+                                <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                            </Link>
+                        </div>
                     </FadeIn>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                         {/* Category 1 */}
                         <FadeIn delay={0.1}>
-                            <Link href="/products?category=decor" className="group block bg-white">
-                                <div className="aspect-square relative overflow-hidden bg-gray-100">
-                                    <img
-                                        src="https://images.unsplash.com/photo-1515286202422-9df7be74a6cf?q=80&w=800&auto=format&fit=crop"
-                                        alt="Home Decor"
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    />
-                                </div>
-                                <div className="p-4 flex items-center justify-between text-foreground">
-                                    <span className="font-medium">Home Decor</span>
-                                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                            <Link href="/products?category=decor" className="group block relative overflow-hidden aspect-[3/4]">
+                                <img
+                                    src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?q=80&w=800&auto=format&fit=crop"
+                                    alt="Home Decor"
+                                    className="w-full h-full object-cover filter grayscale transition-transform duration-1000 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500" />
+                                <div className="absolute bottom-0 left-0 p-8 w-full flex items-center justify-between text-white z-10">
+                                    <span className="font-heading text-2xl tracking-widest uppercase">Decor</span>
+                                    <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center -rotate-45 group-hover:rotate-0 transition-transform duration-500">
+                                        <ArrowRight className="h-4 w-4" />
+                                    </div>
                                 </div>
                             </Link>
                         </FadeIn>
 
                         {/* Category 2 */}
                         <FadeIn delay={0.2}>
-                            <Link href="/products?category=accessories" className="group block bg-white">
-                                <div className="aspect-square relative overflow-hidden bg-gray-100">
-                                    <img
-                                        src="https://images.unsplash.com/photo-1559523161-0fc0d8b38a7a?q=80&w=800&auto=format&fit=crop"
-                                        alt="Bags + Accessories"
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    />
-                                </div>
-                                <div className="p-4 flex items-center justify-between text-foreground">
-                                    <span className="font-medium">Bags + Accessories</span>
-                                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                            <Link href="/products?category=accessories" className="group block relative overflow-hidden aspect-[3/4]">
+                                <img
+                                    src="https://images.unsplash.com/photo-1588600878108-578307a3cc9d?q=80&w=800&auto=format&fit=crop"
+                                    alt="Accessories"
+                                    className="w-full h-full object-cover filter grayscale transition-transform duration-1000 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500" />
+                                <div className="absolute bottom-0 left-0 p-8 w-full flex items-center justify-between text-white z-10">
+                                    <span className="font-heading text-2xl tracking-widest uppercase">Accessories</span>
+                                    <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center -rotate-45 group-hover:rotate-0 transition-transform duration-500">
+                                        <ArrowRight className="h-4 w-4" />
+                                    </div>
                                 </div>
                             </Link>
                         </FadeIn>
 
                         {/* Category 3 */}
-                        <FadeIn delay={0.3}>
-                            <Link href="/products?category=bags-and-purses" className="group block bg-white">
-                                <div className="aspect-square relative overflow-hidden bg-gray-100">
-                                    <img
-                                        src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=800&auto=format&fit=crop"
-                                        alt="Storage Organizers"
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    />
-                                </div>
-                                <div className="p-4 flex items-center justify-between text-foreground">
-                                    <span className="font-medium">Purses & Totes</span>
-                                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                                </div>
-                            </Link>
-                        </FadeIn>
-
-                        {/* Category 4 */}
-                        <FadeIn delay={0.4}>
-                            <Link href="/products" className="group block bg-white">
-                                <div className="aspect-square relative overflow-hidden bg-gray-100">
-                                    <img
-                                        src="https://images.unsplash.com/photo-1550977186-c4582f219ce0?q=80&w=800&auto=format&fit=crop"
-                                        alt="Table Covers & Runners"
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    />
-                                </div>
-                                <div className="p-4 flex items-center justify-between text-foreground">
-                                    <span className="font-medium">Tableware & Mats</span>
-                                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                        <FadeIn delay={0.3} className="sm:hidden md:block">
+                            <Link href="/products?category=textiles" className="group block relative overflow-hidden aspect-[3/4]">
+                                <img
+                                    src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=800&auto=format&fit=crop"
+                                    alt="Textiles"
+                                    className="w-full h-full object-cover filter grayscale transition-transform duration-1000 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500" />
+                                <div className="absolute bottom-0 left-0 p-8 w-full flex items-center justify-between text-white z-10">
+                                    <span className="font-heading text-2xl tracking-widest uppercase">Textiles</span>
+                                    <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center -rotate-45 group-hover:rotate-0 transition-transform duration-500">
+                                        <ArrowRight className="h-4 w-4" />
+                                    </div>
                                 </div>
                             </Link>
                         </FadeIn>
@@ -140,50 +176,51 @@ export default async function Home() {
                 </div>
             </section>
 
-            {/* Featured Products Section (Handicrafts/Tableware vibe) */}
-            <section className="py-16 sm:py-24 bg-white">
+            {/* Featured Products Section */}
+            <section className="py-24 bg-black text-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="mb-12 flex items-center justify-between">
+                    <div className="mb-16 flex flex-col md:flex-row items-center justify-between gap-6">
                         <FadeIn direction="right">
-                            <h2 className="text-3xl md:text-4xl font-heading text-foreground tracking-wide">
-                                Handicrafts
+                            <h2 className="text-3xl md:text-5xl font-heading tracking-widest uppercase">
+                                Latest Objects
                             </h2>
                         </FadeIn>
                         <FadeIn direction="left">
                             <Link href="/products">
-                                <Button variant="outline" className="hidden sm:flex rounded-none border-gray-300 text-foreground hover:bg-gray-50 uppercase tracking-widest text-xs">
-                                    View All
+                                <Button variant="outline" className="hidden border-white text-white hover:bg-white hover:text-black uppercase tracking-widest text-xs rounded-none px-8 py-6">
+                                    Explore The Archive
                                 </Button>
                             </Link>
                         </FadeIn>
                     </div>
 
                     {featuredProducts.length > 0 ? (
-                        <Stagger className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                        <Stagger className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
                             {featuredProducts.map((product) => (
                                 <StaggerItem key={product.id}>
-                                    <ProductCard
-                                        product={{
-                                            ...product,
-                                            price: product.price.toString(),
-                                            images: (product.images as unknown as string[]) || [],
-                                            category: product.category || undefined
-                                        }}
-                                    />
+                                    <div className="filter grayscale hover:grayscale-0 transition-all duration-700">
+                                        <ProductCard
+                                            product={{
+                                                ...product,
+                                                price: product.price.toString(),
+                                                images: (product.images as unknown as string[]) || [],
+                                                category: product.category || undefined
+                                            }}
+                                        />
+                                    </div>
                                 </StaggerItem>
                             ))}
                         </Stagger>
                     ) : (
-                        <div className="flex flex-col items-center justify-center border border-gray-200 py-16 text-center text-muted-foreground">
-                            <p>No products found. Run the seed script to populate the store!</p>
-                            <code className="mt-2 text-xs bg-gray-100 p-1 rounded">pnpm db:seed</code>
+                        <div className="flex flex-col items-center justify-center border border-white/20 py-24 text-center text-white/50">
+                            <p className="font-light tracking-wide uppercase">No artifacts in the archive currently.</p>
                         </div>
                     )}
 
-                    <div className="mt-10 text-center sm:hidden">
+                    <div className="mt-12 text-center md:hidden">
                         <Link href="/products">
-                            <Button variant="outline" className="rounded-none border-gray-300 text-foreground uppercase tracking-widest text-xs w-full">
-                                View All
+                            <Button variant="outline" className="border-white text-white hover:bg-white hover:text-black uppercase tracking-widest text-xs rounded-none px-8 py-6 w-full">
+                                Explore The Archive
                             </Button>
                         </Link>
                     </div>

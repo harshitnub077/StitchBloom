@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/layout/Header";
 import { CustomCursor } from "@/components/ui/custom-cursor";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 
 const sans = Manrope({ subsets: ["latin"], variable: "--font-sans" });
 const heading = Cinzel({ subsets: ["latin"], variable: "--font-heading" });
@@ -56,10 +57,12 @@ export default function RootLayout({
                     )}
                 >
                     <CustomCursor />
-                    <div className="relative flex min-h-screen flex-col">
-                        <Header />
-                        <div className="flex-1">{children}</div>
-                    </div>
+                    <SmoothScrollProvider>
+                        <div className="relative flex min-h-screen flex-col">
+                            <Header />
+                            <div className="flex-1">{children}</div>
+                        </div>
+                    </SmoothScrollProvider>
                 </body>
             </html>
         </ClerkProvider>
