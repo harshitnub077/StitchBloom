@@ -1,5 +1,8 @@
 import { useAuth as useClerkAuth, useUser as useClerkUser } from "@clerk/nextjs";
 
+/**
+ * Hook for accessing Clerk authentication state.
+ */
 export function useAuth() {
     return useClerkAuth();
 }

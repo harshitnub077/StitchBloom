@@ -1,6 +1,9 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useTransition } from "react";
 
+/**
+ * Hook for managing product filters via URL search parameters.
+ */
 export function useProductFilters() {
     const router = useRouter();
     const searchParams = useSearchParams();
