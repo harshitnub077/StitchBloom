@@ -3,6 +3,7 @@
 import { useCart } from "@/hooks/use-cart";
 import { formatPrice } from "@crochetverse/shared";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export function CartSummary() {
     const { items } = useCart();
@@ -16,7 +17,12 @@ export function CartSummary() {
     const total = subtotal + shipping + tax;
 
     return (
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md shadow-2xl sticky top-24">
+        <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md shadow-2xl sticky top-24"
+        >
             <h2 className="text-2xl font-bold font-heading mb-6 tracking-tight text-white">Order Summary</h2>
 
             <div className="space-y-4 text-base">
@@ -41,9 +47,11 @@ export function CartSummary() {
                 </span>
             </div>
 
-            <Button className="w-full h-14 text-lg rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-1 transition-all mt-4" size="lg">
-                Proceed to Checkout
-            </Button>
-        </div>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Button className="w-full h-14 text-lg rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all mt-4" size="lg">
+                    Proceed to Checkout
+                </Button>
+            </motion.div>
+        </motion.div>
     );
 }
