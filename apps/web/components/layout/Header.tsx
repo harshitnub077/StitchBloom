@@ -31,7 +31,7 @@ export function Header() {
     return (
         <header className="w-full bg-white shadow-sm font-sans flex flex-col">
             {/* 1. Promo Bar */}
-            <div className="w-full bg-primary text-primary-foreground text-xs font-medium py-2 text-center tracking-widest uppercase">
+            <div className="w-full bg-primary text-primary-foreground text-xs font-medium py-2.5 text-center tracking-widest uppercase transition-colors">
                 FESTIVE SALE: FREE SHIPPING ACROSS INDIA | USE CODE : BHARAT10
             </div>
 
