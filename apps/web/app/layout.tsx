@@ -10,29 +10,29 @@ const sans = Manrope({ subsets: ["latin"], variable: "--font-sans" });
 const heading = Cinzel({ subsets: ["latin"], variable: "--font-heading" });
 
 export const metadata: Metadata = {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://crochetverse.com'),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://stitchbloom.in'),
     title: {
-        default: "CrochetVerse | Handcrafted with Love",
-        template: "%s | CrochetVerse"
+        default: "StitchBloom | Handcrafted Crochet Creations",
+        template: "%s | StitchBloom"
     },
-    description: "Discover unique, handcrafted crochet items. From amigurumi to wearables, find the perfect handmade gift.",
+    description: "Discover unique handcrafted crochet creations by Indian artisans. Shop home décor, accessories, textiles and more.",
     openGraph: {
         type: "website",
-        locale: "en_US",
+        locale: "en_IN",
         url: "/",
-        siteName: "CrochetVerse",
+        siteName: "StitchBloom",
         images: [
             {
-                url: "/og-image.jpg", // Needs to exist in public
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "CrochetVerse"
+                alt: "StitchBloom – Handcrafted Crochet Creations"
             }
         ]
     },
     twitter: {
         card: "summary_large_image",
-        creator: "@crochetverse"
+        creator: "@stitchbloomindia"
     }
 };
 
@@ -50,7 +50,7 @@ export default function RootLayout({
             <html lang="en">
                 <body
                     className={cn(
-                        "min-h-screen bg-background font-sans antialiased text-foreground",
+                        "min-h-screen bg-[#FCFBF7] font-sans antialiased text-primary",
                         sans.variable,
                         heading.variable,
                         "scroll-smooth"

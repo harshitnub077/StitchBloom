@@ -5,10 +5,13 @@ import { motion } from "framer-motion";
 export default function Template({ children }: { children: React.ReactNode }) {
     return (
         <motion.div
-            initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
-            animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            exit={{ opacity: 0, filter: "blur(10px)", y: 20 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            initial={{ opacity: 0, scale: 0.98, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 1.02, y: -10 }}
+            transition={{ 
+                duration: 0.5, 
+                ease: [0.22, 1, 0.36, 1] 
+            }}
         >
             {children}
         </motion.div>

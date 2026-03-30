@@ -4,48 +4,66 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 0%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 0%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 0 0% 100%;
-    --radius: 0rem;
+    --background: 48 25% 98%; /* #FCFBF7 Warm Ivory */
+    --foreground: 164 61% 11%; /* #0B3028 Deep Forest Green */
+    --card: 48 20% 96%; /* Slightly darker ivory for contrast */
+    --card-foreground: 164 61% 11%;
+    --popover: 48 25% 98%;
+    --popover-foreground: 164 61% 11%;
+    --primary: 164 61% 11%; /* Deep Forest Green */
+    --primary-foreground: 48 25% 98%; /* Warm Ivory */
+    --secondary: 42 36% 57%; /* #BE9F65 Warm Gold/Tan */
+    --secondary-foreground: 48 25% 98%;
+    --muted: 48 15% 92%;
+    --muted-foreground: 164 30% 40%;
+    --accent: 42 36% 57%; /* Warm Gold */
+    --accent-gold: 42 36% 57%;
+    --accent-saffron: 28 60% 55%; /* Rich Terracotta/Saffron accent */
+    --accent-terracotta: 20 50% 45%; 
+    --accent-foreground: 48 25% 98%;
+    --destructive: 0 84% 45%;
+    --destructive-foreground: 48 25% 98%;
+    --border: 48 15% 85%;
+    --input: 48 15% 85%;
+    --ring: 164 61% 11%;
+    --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 0%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 0%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 0 0% 100%;
+    --background: 48 25% 98%; /* Force light mode on everywhere based on instructions */
+    --foreground: 164 61% 11%;
+    --card: 48 20% 96%;
+    --card-foreground: 164 61% 11%;
+    --popover: 48 25% 98%;
+    --popover-foreground: 164 61% 11%;
+    --primary: 164 61% 11%;
+    --primary-foreground: 48 25% 98%;
+    --secondary: 42 36% 57%;
+    --secondary-foreground: 48 25% 98%;
+    --muted: 48 15% 92%;
+    --muted-foreground: 164 30% 40%;
+    --accent: 42 36% 57%;
+    --accent-gold: 42 36% 57%;
+    --accent-saffron: 28 60% 55%;
+    --accent-terracotta: 20 50% 45%;
+    --accent-foreground: 48 25% 98%;
+    --destructive: 0 84% 45%;
+    --destructive-foreground: 48 25% 98%;
+    --border: 48 15% 85%;
+    --input: 48 15% 85%;
+    --ring: 164 61% 11%;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-black/5 shadow-2xl;
+  }
+  .glass-saffron {
+    @apply bg-white/80 backdrop-blur-xl border border-[hsl(var(--accent-saffron))/20] shadow-2xl;
+  }
+  .glass-terracotta {
+    @apply bg-white/80 backdrop-blur-xl border border-[hsl(var(--accent-terracotta))/20] shadow-2xl;
   }
 }
 
