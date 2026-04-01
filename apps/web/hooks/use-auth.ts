@@ -1,23 +1,30 @@
-import { useAuth as useClerkAuth, useUser as useClerkUser } from "@clerk/nextjs";
+import { useSession } from "next-auth/react";
 
 /**
- * Hook for accessing Clerk authentication state.
+ * Hook for accessing Auth.js authentication state.
  */
 export function useAuth() {
-    return useClerkAuth();
+    const { data: session, status } = useSession();
+    return {
+        isLoaded: status !== "loading",
+        isSignedIn: status === "authenticated",
+        userId: session?.user?.id
+    };
 }
 
 export function useUser() {
-    return useClerkUser();
+    const { data: session, status } = useSession();
+    return {
+        user: session?.user,
+        isLoaded: status !== "loading",
+        isSignedIn: status === "authenticated"
+    };
 }
 
 export function useAdmin() {
-    const { user } = useClerkUser();
-    // Assuming we sync role to Clerk public metadata or fetch from DB
-    // For now, let's assume we check the public metadata if we set it there
-    // Or purely rely on server-side checks for sensitive ops.
-    // Ideally, we sync the 'role' to user.publicMetadata.role
-
-    const isAdmin = user?.publicMetadata?.role === "ADMIN";
-    return { isAdmin, user };
+    const { data: session } = useSession();
+    // In a real app we sync role to the DB and surface it in session.user.role
+    // Let's assume user.role exists if mapped.
+    const isAdmin = (session?.user as any)?.role === "ADMIN";
+    return { isAdmin, user: session?.user };
 }

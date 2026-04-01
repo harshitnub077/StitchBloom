@@ -1,7 +1,6 @@
 import { redirect } from "next/navigation";
 import { requireAdmin } from "@/lib/auth";
 import Link from "next/link";
-import { UserButton } from "@clerk/nextjs";
 
 export default async function AdminLayout({
     children,
@@ -41,9 +40,13 @@ export default async function AdminLayout({
                             Products
                         </Link>
                     </nav>
-                    <div className="ml-auto flex items-center space-x-4">
-                        <UserButton afterSignOutUrl="/" />
-                    </div>
+                        <form action={async () => {
+                            "use server";
+                            const { signOut } = await import("@/auth");
+                            await signOut({ redirectTo: "/" });
+                        }}>
+                            <button type="submit" className="text-xs uppercase font-bold text-muted-foreground hover:text-red-500 transition-colors">Sign Out</button>
+                        </form>
                 </div>
             </div>
             <div className="flex-1 space-y-4 p-8 pt-6">

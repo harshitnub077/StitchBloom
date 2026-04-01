@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Manrope, Cinzel } from "next/font/google";
+import { Inter, Cinzel } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/layout/Header";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+import { CustomerSupportBot } from "@/components/ui/CustomerSupportBot";
 
-const sans = Manrope({ subsets: ["latin"], variable: "--font-sans" });
+const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const heading = Cinzel({ subsets: ["latin"], variable: "--font-heading" });
 
 export const metadata: Metadata = {
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     }
 };
 
-import { ClerkProvider } from "@clerk/nextjs";
+import { AuthProvider } from "@/components/providers/AuthProvider";
 
 // ... imports
 
@@ -46,11 +47,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <ClerkProvider>
+        <AuthProvider>
             <html lang="en">
                 <body
                     className={cn(
-                        "min-h-screen bg-[#FCFBF7] font-sans antialiased text-primary",
+                        "min-h-screen bg-background font-sans antialiased text-foreground",
                         sans.variable,
                         heading.variable,
                         "scroll-smooth"
@@ -61,10 +62,11 @@ export default function RootLayout({
                         <div className="relative flex min-h-screen flex-col">
                             <Header />
                             <div className="flex-1">{children}</div>
+                            <CustomerSupportBot />
                         </div>
                     </SmoothScrollProvider>
                 </body>
             </html>
-        </ClerkProvider>
+        </AuthProvider>
     );
 }
