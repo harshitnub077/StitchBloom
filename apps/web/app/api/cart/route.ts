@@ -1,11 +1,12 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { cartService } from "@/lib/cart-service";
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { auth } from "@/auth";
 
 export async function GET(req: NextRequest) {
     try {
-        const { userId } = await auth();
+        const session = await auth();
+        const userId = session?.user?.id;
         const { searchParams } = new URL(req.url);
         const guestId = searchParams.get("guestId");
 

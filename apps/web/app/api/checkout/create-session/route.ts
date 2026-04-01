@@ -1,12 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { auth } from "@/auth";
 import { paymentService } from "@/services/payment-service";
 import { cartService } from "@/lib/cart-service";
 
 export async function POST(req: NextRequest) {
     try {
-        const { userId } = await auth();
-        const user = await currentUser();
+        const session = await auth();
+        const userId = session?.user?.id;
+        const user = session?.user;
 
         if (!userId || !user) {
             return new NextResponse("Unauthorized", { status: 401 });
@@ -22,9 +23,9 @@ export async function POST(req: NextRequest) {
             return new NextResponse("Cart is empty", { status: 400 });
         }
 
-        const session = await paymentService.createCheckoutSession(userId, cart.cartItems, user.emailAddresses[0]?.emailAddress);
+        const sessionUrl = await paymentService.createCheckoutSession(userId, cart.cartItems, user.email || undefined);
 
-        return NextResponse.json({ url: session.url });
+        return NextResponse.json({ url: sessionUrl.url });
     } catch (error) {
         console.error("[CHECKOUT_SESSION]", error);
         return new NextResponse("Internal Error", { status: 500 });

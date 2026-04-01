@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { razorpay } from "@/lib/razorpay";
-import { auth } from "@clerk/nextjs/server";
+import { auth } from "@/auth";
 import { cartService } from "@/lib/cart-service";
 
 export async function POST(req: NextRequest) {
     try {
-        const { userId } = await auth();
+        const session = await auth();
+        const userId = session?.user?.id;
         if (!userId) {
             return new NextResponse("Unauthorized", { status: 401 });
         }

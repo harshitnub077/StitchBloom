@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cartService } from "@/lib/cart-service";
-import { auth } from "@clerk/nextjs/server";
+import { auth } from "@/auth";
 
 export async function POST(req: NextRequest) {
     try {
-        const { userId } = await auth();
+        const session = await auth();
+        const userId = session?.user?.id;
         const body = await req.json();
         const { productId, quantity, guestId } = body;
 
@@ -19,8 +20,8 @@ export async function POST(req: NextRequest) {
             cartId = cart.id;
         } else if (!cartId) {
             // Guest: Create new cart if no guestId provided
-            const cart = await cartService.createCart(null);
-            cartId = cart.id;
+            const guestCart = await cartService.createCart(null);
+            cartId = guestCart.id;
         }
 
         await cartService.addItem(cartId, productId, quantity);
