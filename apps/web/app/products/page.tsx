@@ -91,19 +91,19 @@ export default async function ProductsPage({ searchParams }: PageProps) {
     const products = await getProducts(searchParams);
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <div className="flex flex-col md:flex-row gap-8">
+        <div className="container mx-auto px-4 pt-40 pb-20 max-w-7xl">
+            <div className="flex flex-col md:flex-row gap-12">
                 <aside className="w-full md:w-64 flex-shrink-0">
                     <ProductFilters />
                 </aside>
                 <main className="flex-1">
-                    <div className="mb-6">
-                        <h1 className="text-3xl font-bold">Shop</h1>
-                        <p className="text-muted-foreground mt-2">
-                            Showing {products.length} results
+                    <div className="mb-10 text-center md:text-left">
+                        <h1 className="text-4xl md:text-5xl font-heading tracking-wide mb-3 text-primary">Discover Collection</h1>
+                        <p className="text-sm font-medium tracking-[0.2em] uppercase text-primary/60">
+                            Showing {products.length} crafted masterpieces
                         </p>
                     </div>
-                    <Suspense fallback={<div>Loading products...</div>}>
+                    <Suspense fallback={<div className="flex justify-center py-20 text-primary/60 uppercase tracking-widest text-xs">Loading collection...</div>}>
                         <ProductGrid products={products.map(p => ({
                             ...p,
                             price: p.price.toString(),

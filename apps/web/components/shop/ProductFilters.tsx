@@ -6,10 +6,9 @@ import { cn } from "@/lib/utils";
 
 // This should ideally be fetched from the API or passed as props
 const CATEGORIES = [
-    { name: "Yarn", slug: "yarn" },
-    { name: "Hooks", slug: "hooks" },
-    { name: "Patterns", slug: "patterns" },
-    { name: "Kits", slug: "kits" },
+    { name: "Decor", slug: "decor" },
+    { name: "Accessories", slug: "accessories" },
+    { name: "Textiles", slug: "textiles" },
 ];
 
 export function ProductFilters() {
@@ -18,9 +17,9 @@ export function ProductFilters() {
     const currentSort = searchParams.get("sort");
 
     return (
-        <div className="space-y-10 p-6 glass rounded-2xl">
+        <div className="space-y-10 p-8 bg-white border border-primary/10 rounded-3xl shadow-lg">
             <div className="space-y-6">
-                <h3 className="text-[11px] uppercase tracking-[0.3em] font-semibold text-white/40 border-b border-white/5 pb-2">Collections</h3>
+                <h3 className="text-[10px] uppercase tracking-[0.4em] font-bold text-primary/60 border-b border-primary/10 pb-3">Collections</h3>
                 <div className="flex flex-col gap-3">
                     {CATEGORIES.map((category) => {
                         const isActive = currentCategory === category.slug;
@@ -34,18 +33,18 @@ export function ProductFilters() {
                                     )
                                 }
                                 className={cn(
-                                    "flex items-center justify-between group transition-all duration-300 px-2 py-1 rounded-lg hover:bg-white/5",
-                                    isActive ? "text-white translate-x-2" : "text-white/40"
+                                    "flex items-center justify-between group transition-all duration-300 px-3 py-2 rounded-xl hover:bg-[#F5F0E8]",
+                                    isActive ? "text-primary translate-x-2 bg-[#F5F0E8]" : "text-primary/70"
                                 )}
                             >
                                 <span className={cn(
-                                    "text-sm tracking-widest uppercase font-medium",
-                                    isActive ? "font-bold" : "font-normal group-hover:text-white/80"
+                                    "text-xs tracking-widest uppercase font-semibold",
+                                    isActive ? "font-bold" : "font-medium group-hover:text-primary"
                                 )}>
                                     {category.name}
                                 </span>
                                 {isActive && (
-                                    <div className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+                                    <div className="w-1.5 h-1.5 rounded-full bg-[#1A4D3E] shadow-sm" />
                                 )}
                             </button>
                         );
@@ -54,20 +53,20 @@ export function ProductFilters() {
             </div>
 
             <div className="space-y-6">
-                <h3 className="text-[11px] uppercase tracking-[0.3em] font-semibold text-white/40 border-b border-white/5 pb-2">Filter & Sort</h3>
+                <h3 className="text-[10px] uppercase tracking-[0.4em] font-bold text-primary/60 border-b border-primary/10 pb-3">Sort By</h3>
                 <div className="space-y-4">
                     <div className="relative group">
                         <select
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white/80 appearance-none focus:outline-none focus:ring-1 focus:ring-white/20 transition-all cursor-pointer group-hover:border-white/20"
+                            className="w-full bg-[#FCFBF7] border border-primary/10 rounded-xl px-5 py-4 text-xs tracking-widest uppercase font-semibold text-primary appearance-none focus:outline-none focus:ring-1 focus:ring-[#1A4D3E] transition-all cursor-pointer hover:border-primary/20"
                             value={currentSort || "newest"}
                             onChange={(e) => setFilter("sort", e.target.value)}
                         >
-                            <option value="newest" className="bg-zinc-900 border-none">Newest Artifacts</option>
-                            <option value="price-asc" className="bg-zinc-900 border-none">Price: Low to High</option>
-                            <option value="price-desc" className="bg-zinc-900 border-none">Price: High to Low</option>
-                            <option value="name-asc" className="bg-zinc-900 border-none">Name: A-Z</option>
+                            <option value="newest" className="bg-white border-none py-2 text-primary">New Arrivals</option>
+                            <option value="price-asc" className="bg-white border-none py-2 text-primary">Price: Low to High</option>
+                            <option value="price-desc" className="bg-white border-none py-2 text-primary">Price: High to Low</option>
+                            <option value="name-asc" className="bg-white border-none py-2 text-primary">Name: A-Z</option>
                         </select>
-                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/40 group-hover:text-white/60 transition-colors">
+                        <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-primary/40 group-hover:text-primary transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                         </div>
                     </div>
@@ -76,11 +75,11 @@ export function ProductFilters() {
 
             <Button
                 variant="ghost"
-                className="w-full text-[10px] uppercase tracking-[0.3em] border border-white/5 hover:bg-white hover:text-black rounded-xl py-6 transition-all duration-500 disabled:opacity-20"
+                className="w-full text-[10px] bg-[#FCFBF7] uppercase tracking-[0.4em] font-bold text-primary border border-primary/10 hover:bg-[#1A4D3E] hover:text-white rounded-xl py-6 transition-all duration-500 disabled:opacity-30 disabled:hover:bg-[#FCFBF7] disabled:hover:text-primary"
                 onClick={clearFilters}
                 disabled={!currentCategory && !currentSort}
             >
-                Reset Archive
+                Reset Filters
             </Button>
         </div>
     );

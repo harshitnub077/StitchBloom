@@ -42,14 +42,14 @@ export default function CheckoutPage() {
     };
 
     if (cartLoading) { // Prevent hydration mismatch or flash
-        return <div className="container py-20 text-center">Loading...</div>;
+        return <div className="container min-h-[60vh] flex items-center justify-center pt-40 pb-20 text-center uppercase tracking-widest text-xs text-primary/60">Loading...</div>;
     }
 
     if (items.length === 0) {
         return (
-            <div className="container py-20 text-center">
-                <h1 className="text-2xl font-bold">Your cart is empty</h1>
-                <Button onClick={() => router.push("/products")} className="mt-4">
+            <div className="container min-h-[60vh] flex flex-col items-center justify-center pt-40 pb-20 text-center max-w-7xl">
+                <h1 className="text-4xl md:text-5xl font-heading mb-6 tracking-wide text-primary">Your cart is empty</h1>
+                <Button onClick={() => router.push("/products")} className="mt-4 rounded-full px-8 py-6 font-bold tracking-widest uppercase text-xs">
                     Continue Shopping
                 </Button>
             </div>
@@ -57,28 +57,29 @@ export default function CheckoutPage() {
     }
 
     return (
-        <div className="container mx-auto px-4 py-8 max-w-2xl">
-            <h1 className="text-3xl font-bold mb-8">Checkout</h1>
+        <div className="container mx-auto px-4 pt-40 pb-24 max-w-2xl">
+            <h1 className="text-4xl md:text-5xl font-heading tracking-wide mb-12 text-center text-primary">Checkout</h1>
 
-            <div className="bg-card border rounded-lg p-6 shadow-sm">
-                <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
-                <div className="space-y-4 mb-6">
+            <div className="bg-white border border-primary/10 rounded-[2rem] p-8 md:p-12 shadow-xl relative overflow-hidden">
+                <div className="absolute top-0 right-1/4 w-[300px] h-[300px] bg-[#E5C17C]/5 blur-[80px] rounded-full pointer-events-none" />
+                <h2 className="text-[12px] uppercase tracking-[0.4em] font-bold text-primary/60 border-b border-primary/10 pb-4 mb-6">Order Summary</h2>
+                <div className="space-y-4 mb-8">
                     {items.map((item) => (
                         <div key={item.id} className="flex justify-between items-center text-sm">
-                            <span>{item.product.name} x {item.quantity}</span>
-                            <span>{formatPrice(Number(item.product.price) * item.quantity)}</span>
+                            <span className="font-medium text-primary/80">{item.product.name} <span className="text-primary/40 mx-2">x</span> {item.quantity}</span>
+                            <span className="font-semibold text-primary">{formatPrice(Number(item.product.price) * item.quantity)}</span>
                         </div>
                     ))}
                 </div>
 
-                <div className="border-t pt-4 flex justify-between font-bold text-lg mb-8">
-                    <span>Total</span>
+                <div className="border-t border-primary/10 pt-6 flex justify-between font-heading text-2xl mb-12 text-primary">
+                    <span>Investment</span>
                     <span>{formatPrice(total)}</span>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-6 relative z-10">
                     <Button
-                        className="w-full"
+                        className="w-full h-14 rounded-xl text-sm font-bold tracking-[0.1em] uppercase hover:-translate-y-1 transition-transform bg-primary text-white hover:bg-[#E5C17C]"
                         size="lg"
                         onClick={onCheckout}
                         disabled={loading}
@@ -86,12 +87,12 @@ export default function CheckoutPage() {
                         {loading ? "Processing..." : "Pay with Stripe (International)"}
                     </Button>
 
-                    <div className="relative">
+                    <div className="relative py-2">
                         <div className="absolute inset-0 flex items-center">
-                            <span className="w-full border-t" />
+                            <span className="w-full border-t border-primary/10" />
                         </div>
-                        <div className="relative flex justify-center text-xs uppercase">
-                            <span className="bg-background px-2 text-muted-foreground">Or</span>
+                        <div className="relative flex justify-center text-[10px] uppercase font-bold tracking-[0.3em]">
+                            <span className="bg-white px-4 text-primary/40">Or</span>
                         </div>
                     </div>
 

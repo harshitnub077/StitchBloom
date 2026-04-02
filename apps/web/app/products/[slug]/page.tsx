@@ -55,10 +55,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
     }
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
+        <div className="container mx-auto px-4 pt-40 pb-24 max-w-7xl">
+            <div className="grid md:grid-cols-2 gap-12 lg:gap-20 mb-24">
                 <ProductGallery images={[product.images as string]} name={product.name} />
                 <ProductInfo product={product} />
+            </div>
+            
+            <div className="border-t border-primary/10 pt-20">
+                <ProductReviews productId={product.id} reviews={product.reviews} />
             </div>
         </div>
     );

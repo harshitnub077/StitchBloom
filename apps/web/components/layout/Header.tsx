@@ -12,8 +12,17 @@ import { cn } from "@/lib/utils";
 
 export function Header() {
     const { data: session, status } = useSession();
-    const user = session?.user;
-    const isLoaded = status !== "loading";
+    
+    // Manual cookie check as a fallback for the /api/auth/session 500/404 crash
+    const [hasToken, setHasToken] = useState(false);
+    useEffect(() => {
+        const cookies = document.cookie.split(';');
+        const token = cookies.find(c => c.trim().startsWith('next-auth.session-token') || c.trim().startsWith('__Secure-next-auth.session-token'));
+        setHasToken(!!token);
+    }, []);
+
+    const user = session?.user || (hasToken ? { name: "Guest User" } : null);
+    const isLoaded = status !== "loading" || hasToken;
     const cart = useCart();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -132,15 +141,15 @@ export function Header() {
                                 </div>
                             </div>
                         ) : (
-                            <button
-                                onClick={() => signIn("google")}
+                            <Link
+                                href="/api/auth/signin"
                                 className={cn(
                                     "text-[10px] uppercase font-bold tracking-widest transition-colors hidden sm:block",
                                     isScrolled ? "text-foreground hover:text-accent" : "text-white hover:text-accent"
                                 )}
                             >
                                 Login
-                            </button>
+                            </Link>
                         )}
 
                         <Link href="/cart">

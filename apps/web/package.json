@@ -9,7 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@clerk/nextjs": "^6.37.4",
+        "@auth/prisma-adapter": "^2.11.1",
         "@crochetverse/database": "workspace:*",
         "@crochetverse/shared": "workspace:*",
         "@hookform/resolvers": "^3.3.4",
@@ -32,6 +32,7 @@
         "framer-motion": "^11.0.8",
         "lucide-react": "^0.344.0",
         "next": "14.1.0",
+        "next-auth": "5.0.0-beta.31",
         "pdfkit": "^0.17.2",
         "razorpay": "^2.9.6",
         "react": "^18.2.0",

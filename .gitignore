@@ -5,3 +5,9 @@ node_modules
 .turbo
 dist
 .next
+.bin/
+.fake_home/
+.pnpm-store/
+.xdg/
+pnpm.cjs
+server_logs.txt

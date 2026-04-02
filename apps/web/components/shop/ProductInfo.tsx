@@ -37,113 +37,113 @@ export function ProductInfo({ product }: ProductInfoProps) {
     };
 
     return (
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10 lg:pl-10">
             <div className="space-y-4">
-                <div className="flex items-center gap-2">
-                    <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-medium">Artifact Archive</span>
-                    <div className="h-px w-8 bg-white/20" />
+                <div className="flex items-center gap-3 mb-2">
+                    <span className="text-[10px] uppercase tracking-[0.4em] text-[#E5C17C] font-bold">Curated Selection</span>
+                    <div className="h-px w-10 bg-primary/10" />
                 </div>
-                <h1 className="text-4xl md:text-5xl font-heading tracking-widest text-white leading-tight uppercase">
+                <h1 className="text-4xl md:text-5xl font-heading tracking-wide text-primary leading-tight">
                     {product.name}
                 </h1>
-                <div className="flex items-center justify-between pt-2">
+                <div className="flex items-center justify-between pt-4">
                     <div className="flex flex-col">
-                        <span className="text-[10px] uppercase tracking-widest text-white/40 mb-1">Acquisition Investment</span>
-                        <span className="text-3xl font-bold text-white tracking-widest leading-none">
+                        <span className="text-[10px] uppercase tracking-[0.3em] text-primary/40 mb-1.5 font-bold">Investment</span>
+                        <span className="text-3xl font-bold text-primary tracking-wide leading-none">
                             {formatPrice(Number(product.price))}
                         </span>
                     </div>
                     {product.stock > 0 ? (
-                        <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full">
-                            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.5)]" />
-                            <span className="text-[10px] uppercase tracking-widest text-white/80 font-medium">Currently Available</span>
+                        <div className="flex items-center gap-2 bg-[#FCFBF7] border border-primary/10 px-4 py-2.5 rounded-full shadow-sm">
+                            <div className="w-2 h-2 rounded-full bg-[#1A4D3E] animate-pulse shadow-[0_0_8px_rgba(26,77,62,0.5)]" />
+                            <span className="text-[10px] uppercase tracking-widest text-primary/80 font-bold">In Stock</span>
                         </div>
                     ) : (
-                        <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full">
-                            <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                            <span className="text-[10px] uppercase tracking-widest text-white/80 font-medium">Archive Preserved</span>
+                        <div className="flex items-center gap-2 bg-[#FCFBF7] border border-primary/10 px-4 py-2.5 rounded-full shadow-sm">
+                            <div className="w-2 h-2 rounded-full bg-red-400" />
+                            <span className="text-[10px] uppercase tracking-widest text-primary/80 font-bold">Out of Stock</span>
                         </div>
                     )}
                 </div>
             </div>
 
-            <div className="space-y-6">
-                <div className="prose prose-invert prose-sm max-w-none">
-                    <p className="text-white/60 leading-relaxed font-light text-lg">
+            <div className="space-y-8">
+                <div className="prose prose-sm max-w-none">
+                    <p className="text-primary/70 leading-relaxed font-light text-lg">
                         {product.description}
                     </p>
                 </div>
                 
-                <div className="glass p-6 rounded-2xl relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <Star className="h-12 w-12 text-white" />
+                <div className="bg-[#FCFBF7] border border-primary/5 p-8 rounded-3xl relative overflow-hidden group shadow-sm">
+                    <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity duration-700">
+                        <Star className="h-16 w-16 text-primary" />
                     </div>
-                    <p className="text-white font-heading text-sm tracking-[0.2em] uppercase flex items-center gap-2 mb-3">
-                        <span className="w-2 h-2 rounded-full bg-white/40" />
+                    <p className="text-primary font-heading text-sm tracking-[0.2em] uppercase flex items-center gap-3 mb-4">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#E5C17C]" />
                         Heritage Craftsmanship
                     </p>
-                    <p className="text-xs text-white/50 leading-relaxed font-light tracking-wide italic">
+                    <p className="text-sm text-primary/60 leading-relaxed font-light tracking-wide italic">
                         This piece is a vessel of Indian tradition, meticulously handcrafted using centuries-old techniques. Each stitch tells a story of patience, skill, and cultural heritage, supporting artisanal communities across Bharat.
                     </p>
                 </div>
             </div>
 
-            <div className="flex items-center gap-6 pt-4">
-                <div className="flex flex-col gap-2">
-                    <span className="text-[10px] uppercase tracking-widest text-white/40">Unit Quantity</span>
+            <div className="flex items-center gap-6 pt-2">
+                <div className="flex flex-col gap-3 w-full max-w-[200px]">
+                    <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary/60">Quantity</span>
                     <div className="relative group">
                         <select
                             value={quantity}
                             onChange={(e) => setQuantity(Number(e.target.value))}
-                            className="bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-sm text-white appearance-none focus:outline-none focus:ring-1 focus:ring-white/20 transition-all cursor-pointer min-w-[100px] font-medium"
+                            className="w-full bg-white border border-primary/10 rounded-xl px-5 py-4 text-sm text-primary appearance-none focus:outline-none focus:ring-1 focus:ring-[#1A4D3E] transition-all cursor-pointer font-medium shadow-sm hover:border-primary/20"
                         >
                             {[...Array(Math.min(10, product.stock)).keys()].map((i) => (
-                                <option key={i + 1} value={i + 1} className="bg-zinc-900 border-none">
+                                <option key={i + 1} value={i + 1} className="bg-white border-none py-2">
                                     {i + 1} Units
                                 </option>
                             ))}
                         </select>
-                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/40 group-hover:text-white/60">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-primary/40 group-hover:text-primary transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="flex flex-col gap-4 sm:flex-row pt-4">
+            <div className="flex flex-col gap-4 sm:flex-row pt-6">
                 <Button
                     className={cn(
-                        "flex-[2] uppercase tracking-[0.2em] text-xs py-8 rounded-2xl transition-all duration-1000 shadow-[0_0_30px_rgba(255,255,255,0.05)] group",
-                        isAdded ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/50 hover:bg-emerald-500/20" : "bg-white text-black hover:bg-white/90"
+                        "flex-[2] uppercase tracking-[0.2em] font-bold text-xs py-7 rounded-full transition-all duration-500 shadow-md group",
+                        isAdded ? "bg-[#1A4D3E]/10 text-[#1A4D3E] border border-[#1A4D3E]/30" : "bg-[#1A4D3E] text-white hover:bg-[#E5C17C] hover:shadow-xl hover:-translate-y-1"
                     )}
                     onClick={handleAddToCart}
                     disabled={isLoading || product.stock === 0}
                 >
                     {isAdded ? (
-                        <span className="flex items-center gap-2 animate-in fade-in zoom-in duration-300">
-                            <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                            Acquired Successfully
+                        <span className="flex items-center gap-3 animate-in fade-in zoom-in duration-300">
+                            <div className="w-2 h-2 rounded-full bg-[#1A4D3E] animate-pulse" />
+                            Added to Cart
                         </span>
                     ) : (
                         <>
                             <ShoppingCart className="mr-3 h-4 w-4 group-hover:rotate-12 transition-transform" />
-                            {isLoading ? "Integrating..." : "Add to Repository"}
+                            {isLoading ? "Adding..." : "Add to Cart"}
                         </>
                     )}
                 </Button>
                 
                 <div className="flex gap-4 flex-1">
                     <Button
-                        variant="ghost"
-                        className="flex-1 glass border border-white/5 hover:bg-white/10 text-white rounded-2xl p-0 aspect-square sm:aspect-auto"
+                        variant="outline"
+                        className="flex-1 bg-white border border-primary/10 hover:border-[#1A4D3E] hover:bg-[#FCFBF7] text-primary rounded-full p-0 aspect-square sm:aspect-auto transition-all shadow-sm"
                         onClick={handleWishlist}
                         title="Add to Wishlist"
                     >
                         <Heart className="h-5 w-5" />
                     </Button>
                     <Button 
-                        variant="ghost" 
-                        className="flex-1 glass border border-white/5 hover:bg-white/10 text-white rounded-2xl p-0 aspect-square sm:aspect-auto" 
+                        variant="outline" 
+                        className="flex-1 bg-white border border-primary/10 hover:border-[#1A4D3E] hover:bg-[#FCFBF7] text-primary rounded-full p-0 aspect-square sm:aspect-auto transition-all shadow-sm" 
                         title="Share"
                     >
                         <Share2 className="h-5 w-5" />
