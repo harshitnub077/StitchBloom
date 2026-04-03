@@ -1,7 +1,13 @@
 import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextRequest } from 'next/server'
+
+// Polyfill for Next.js 14.1.0 + Auth.js v5 bug where NextRequest is missing in some contexts
+if (typeof (globalThis as any).NextRequest === "undefined" || (globalThis as any).NextRequest?.name === "Proxy") {
+  (globalThis as any).NextRequest = NextRequest;
+}
 
 // These routes require authentication
+
 const protectedRoutes = [
   '/checkout',
   '/account',

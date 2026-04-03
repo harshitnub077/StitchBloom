@@ -1,11 +1,35 @@
-// SAFE STUBBED AUTH: Prevents the NextRequest constructor crash from affecting page renders.
-// Components that import these stubs will not trigger the library's internal 500 crashes.
+import { NextRequest } from "next/server";
 
-export const auth = async () => null;
-export const signIn = async () => {};
-export const signOut = async () => {};
+// Polyfill for Next.js 14.1.0 + Auth.js v5 bug where NextRequest is missing in some contexts
+if (typeof (globalThis as any).NextRequest === "undefined" || (globalThis as any).NextRequest?.name === "Proxy") {
+  (globalThis as any).NextRequest = NextRequest;
+}
 
-export const handlers = {
-  GET: async () => new Response("Auth API Isolated", { status: 200 }),
-  POST: async () => new Response("Auth API Isolated", { status: 200 }),
-};
+import NextAuth from "next-auth"
+import GoogleProvider from "next-auth/providers/google"
+import { PrismaAdapter } from "@auth/prisma-adapter"
+import { db } from "@/lib/db"
+
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  adapter: PrismaAdapter(db),
+  providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
+  ],
+  session: { strategy: "database" },
+  trustHost: true,
+  secret: process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET,
+  basePath: "/api/auth",
+  debug: process.env.NODE_ENV === "development",
+  callbacks: {
+    async session({ session, user }: any) {
+      if (session?.user && user) {
+        session.user.id = user.id;
+      }
+      return session;
+    }
+  }
+});
+

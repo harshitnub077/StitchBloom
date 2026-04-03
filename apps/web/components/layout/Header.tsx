@@ -10,9 +10,15 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+import { usePathname } from "next/navigation";
+
 export function Header() {
+    const pathname = usePathname();
     const { data: session, status } = useSession();
     
+    // Hide header on sign-in page for full-screen immersive experience
+    if (pathname === "/sign-in") return null;
+
     // Manual cookie check as a fallback for the /api/auth/session 500/404 crash
     const [hasToken, setHasToken] = useState(false);
     useEffect(() => {
